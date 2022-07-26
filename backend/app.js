@@ -8,7 +8,7 @@ app.listen(3001,()=>{
 
 app.get('/api/test',(req,res)=>{
   res.json({
-    message: 'test'
+    message: 'test '
   })
 })
 
