@@ -23,6 +23,8 @@
     "importsNotUsedAsValues": "error",
     "checkJs": true,
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
