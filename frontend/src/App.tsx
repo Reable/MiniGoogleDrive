@@ -1,4 +1,5 @@
 import React from "react";
+import Form from "./components/Form";
 
 function App() {
   const hello = "";
@@ -6,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Lorem, ipsum.
+        <Form inputs={[{name:"name", pl:"name"}]} style="hello"/>
       </header>
     </div>
   );
