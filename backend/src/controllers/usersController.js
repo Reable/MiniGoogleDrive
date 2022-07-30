@@ -1,28 +1,18 @@
 const { Users } = require("../db");
+const { sendErrorValidate } = require("../utils/error");
+const validateData = require("../utils/validate");
+const uuid = require("uuid")
 
-async function getAll(req, res){
-  const allUsers = await Users.findAll();
-  res.json({
-    users: allUsers,
-  })
-}
+async function registration (req, res) { }
 
-async function create () {
-  
-}
+async function authorization (req, res) { }
 
-async function update () {
-  
-}
+async function getOne (req ,res) { }
 
-async function getOne () {
-  
-}
+async function remove () { }
 
-async function remove () {
-  
-}
+async function banned () { }
 
 module.exports = {
-  getAll, create, remove, getOne, update
+  getAll, registration, authorization, remove, banned, getOne
 }

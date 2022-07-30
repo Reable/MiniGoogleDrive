@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize("googleDrive", "postgres", "root", { 
+const sequelize = new Sequelize("googleDrive", "root", "root", { 
   host: "localhost", 
-  dialect: "postgres",
+  dialect: "mysql",
 })
 
 let Users;

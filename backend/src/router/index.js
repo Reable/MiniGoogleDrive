@@ -3,6 +3,6 @@ const UserController = require('../controllers/usersController');
 
 const router = Router();
 
-router.get('/api/users', UserController.getAll)
+router.post('/registration', UserController.registration)
 
 module.exports = router;
