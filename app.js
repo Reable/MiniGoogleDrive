@@ -8,15 +8,16 @@ const app = express()
 
 app.use(bodyParser.json());
 
-app.use(router);
-
-// sequelize.sync({force:true})
-sequelize.sync()
-.then(result => {
-    app.listen(3000, () => {
-      console.log("Server is running");
+const start = () => {
+  try{
+    app.use(router);
+    // sequelize.sync({force:true})
+    sequelize.sync()
+    .then(result => {
+      app.listen(3000, () => console.log("Server is running"))
     })
-  })
-  .catch(err => {
-      console.log(err);
-  });
+  } catch (e){
+    console.log(e);
+  }
+}
+start()
