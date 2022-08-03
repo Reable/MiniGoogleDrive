@@ -3,7 +3,7 @@ const path = require('path');
 const {check} = require('express-validator')
 const UserController = require('../controllers/usersController');
 const authMiddleware = require("../middleware/authMiddleware.js");
-const roleMiddleware = require('../controllers/roleMiddleware');
+const roleMiddleware = require('../middleware/roleMiddleware');
 
 const router = Router();
 
