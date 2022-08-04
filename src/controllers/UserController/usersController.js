@@ -1,11 +1,11 @@
-const { Users } = require("../db");
-const { sendErrorValidate } = require("../utils/error");
-const validateData = require("../utils/validate");
+const { Users } = require("../../db");
+const { sendErrorValidate } = require("../../utils/error");
+const validateData = require("../../utils/validate");
 const uuid = require("uuid");
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
-const { SECRET_KEY } = require('../../config.js')
+const { SECRET_KEY } = require('../../../config.js')
 
 const generateToken = (id, role) => {
   const payload = {
@@ -74,9 +74,11 @@ class UserController {
     return res.json(allUsers)
   }
 
-  async remove () { }
-
-  async banned () { }
+  async remove (req, res) {
+    const id = req.params.id;
+    const user = await Users.destroy({where: {id}})
+    return res.json(user);
+  }
 
 }
 module.exports = new UserController;

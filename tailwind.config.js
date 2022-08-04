@@ -5,7 +5,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        mainColor: "#050C2a"
       },
       padding: {
         big: "50px"
