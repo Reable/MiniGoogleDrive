@@ -1,16 +1,24 @@
+const path = require('path');
+const morgan = require('morgan');
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
-const { sequelize } = require('./src/db');
 
-const router = require('./src/router');
+const { sequelize } = require('./src/db');
+const { pathFile } = require('./config');
+
+const routerApi = require('./src/router/routerApi.js');
 const app = express()
 
+app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.resolve(__dirname,"public")));
+
+app.use('/api', routerApi);
+app.use('/files', express.static(pathFile));
 
 const start = () => {
   try{
-    app.use(router);
     // sequelize.sync({force:true})
     sequelize.sync()
     .then(result => {

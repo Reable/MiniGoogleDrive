@@ -1,43 +1,30 @@
 const { DataTypes } = require('sequelize')
 
 module.exports = function (sequelize) {
-  return sequelize.define('users', {
+  return sequelize.define('file', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
     },
-    email: {
+    user_id: {
       allowNull: false,
       type: DataTypes.STRING,
     },
-    password: {
+    filename: {
       allowNull: false,
       type: DataTypes.STRING,
     },
-    usedSpace: {
+    pathfile: {
       allowNull: false,
       type: DataTypes.STRING,
     },
-    diskSpace: {
+    size: {
       allowNull: false,
       type: DataTypes.STRING,
     },
-    name: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    surname: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    phone: {
-      allowNull: true,
-      type: DataTypes.STRING,
-    },
-    role: {
-      default: "user",
+    type: {
       allowNull: false,
       type: DataTypes.STRING,
     },

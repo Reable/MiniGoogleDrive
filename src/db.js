@@ -6,8 +6,10 @@ const sequelize = new Sequelize("googleDrive", "root", "root", {
 })
 
 let Users = require('./models/users.model')(sequelize)
+let File = require('./models/file.model')(sequelize)
 
 module.exports = {
   sequelize,
-  Users
+  Users,
+  File
 }

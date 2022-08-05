@@ -4,7 +4,6 @@ const validateData = require("../../utils/validate");
 const uuid = require("uuid");
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { validationResult } = require('express-validator')
 const { SECRET_KEY } = require('../../../config.js')
 
 const generateToken = (id, role) => {
@@ -34,7 +33,7 @@ class UserController {
         return res.setHeader("Content-type", "application/json").status(402).json({error: "email", message: "данная почта уже используеться"})
       }
       const hashPassword = bcrypt.hashSync(req.body.password, 7)
-      const user = await Users.create({...req.body, password: hashPassword, role: "user"})
+      const user = await Users.create({...req.body, password: hashPassword, role: "user", usedSpace: 0, diskSpace: 0})
       
       const token = generateToken(user.id, user.role);
       return res.status(201).json({ token })
