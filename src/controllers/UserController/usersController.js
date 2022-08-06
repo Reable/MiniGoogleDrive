@@ -51,20 +51,21 @@ class UserController {
         : {error: "password", message: "Вы не ввели пароль"} 
         return res.setHeader("Content-type", "application/json").status(402).json(err)
       }
+
       const user = await Users.findOne({where: {email: req.body.email}})
       if (!user) {
-        return res.setHeader("Content-type", "application/json").status(402).json({error: "email", message: "данного пользователя не существует"})
+        return res.setHeader("Content-type", "application/json").status(402).json({error: "alert", message: "Данного пользователя не существует"})
       }
 
       const validaPassword = await bcrypt.compare(req.body.password, user.password)
       if (!validaPassword) {
-        return res.status(401).json({ messae: "Неверный пароль" })
+        return res.status(401).json({ error: 'password', message: "Неверный пароль" })
       }
       const token = generateToken(user.id, user.role);
       return res.status(200).json({ token })
     } catch(e) {
       console.log(e);
-      return res.status(400).json({message: "Authorization error"})
+      return res.status(400).json({error: 'alert', message: "Authorization error"})
     }
   }
 
@@ -79,5 +80,15 @@ class UserController {
     return res.json(user);
   }
 
+  async check(req, res) {
+    console.log('-----------------------')
+    const user = await Users.findOne({
+      where: {
+        id: req.user.id
+      },
+      attributes: ['id', 'email', 'image']
+    })
+    return res.status(200).json(user)
+  }
 }
 module.exports = new UserController;

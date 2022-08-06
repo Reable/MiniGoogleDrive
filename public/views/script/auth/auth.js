@@ -14,7 +14,6 @@ async function sendRequest(event){
   } else {
     route = 'registration'
   }
-  console.log(route)
   fetch(`http://localhost:3000/api/${route}`,{
     method: 'post',
     body: JSON.stringify(obj),
@@ -24,7 +23,7 @@ async function sendRequest(event){
   })
   .then(res => res.json())
   .then(res => {
-    jobWithData(res);
+    jobWithData(res)
   })
 }
 
@@ -34,18 +33,22 @@ button.addEventListener('click', (e) => {
 })
 
 function jobWithData(res) {
+  console.log(res)
+  if (res.error === 'alert') return alert(res.message)
   if (res.error) {
     const errorInput = document.getElementById(res.error)
     const placeholder = errorInput.placeholder
+
     errorInput.placeholder = res.message
     errorInput.classList.add('border-red-400');
-    errorInput.classList.add('placeholder:text-red-400');
-    console.log(errorInput.classList)
+
     setTimeout(()=> {
       errorInput.placeholder = placeholder
       errorInput.classList.remove('border-red-400');
     }, 3000)
+    return;
   }
+
   localStorage.setItem('token', res.token)
-  console.log(res)
+  location.href = '/personal-area'
 }
