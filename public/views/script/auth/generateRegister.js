@@ -16,14 +16,14 @@ function generateHtml () {
       <p class="w-full p-3 text-xl">Log in</p>
       <label for="email">
         <input
-        type="text" id="email" name="email" placeholder="Email"
+        type="email" id="email" name="email" placeholder="Email"
         class="w-full rounded-md p-2 border my-4 focus:border-blue-400"
         >
       </label>
       
       <label for="password">
         <input
-        type="text" id="password" name="password" placeholder="Password"
+        type="password" id="password" name="password" placeholder="Password"
         class="w-full rounded-md p-2 border my-4"
         >
       </label>
@@ -35,21 +35,21 @@ function generateHtml () {
       <p class="w-full p-3 text-xl">Sign in</p>
       <label for="email">
         <input
-        type="text" id="email" name="email" placeholder="Email"
+        type="email" id="email" name="email" placeholder="Email"
         class="w-full rounded-md p-2 border my-4 focus:border-blue-400"
         >
       </label>
       
       <label for="password">
         <input
-        type="text" id="password" name="password" placeholder="Password"
+        type="password" id="password" name="password" placeholder="Password"
         class="w-full rounded-md p-2 border my-4"
         >
       </label>
       
       <label for="password">
         <input
-        type="text" id="email" placeholder="Password confirm"
+        type="password" id="passwordConfirmed" name="passwordConfirmed" placeholder="Password confirm"
         class="w-full rounded-md p-2 border my-4"
         >
       </label>
