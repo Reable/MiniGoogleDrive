@@ -567,12 +567,12 @@ video {
   display: flex;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .h-\[100vh\] {
   height: 100vh;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-full {
@@ -603,6 +603,11 @@ video {
   border-width: 1px;
 }
 
+.border-red-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
@@ -623,6 +628,10 @@ video {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-\[100\%\] {
+  padding: 100%;
 }
 
 .text-center {

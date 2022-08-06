@@ -11,22 +11,24 @@
 <body class="h-[100vh]">
   <div id="auth" class="w-full h-full flex justify-center items-center">
     <form action="" id="login" class="w-96 shadow-2xl shadow-gray-400 rounded-3xl p-4">
-      <p class="w-full p-3 text-xl">Log in</p>
-      <label for="email">
-        <input
+      <div class="form-inputs">
+        <p class="w-full p-3 text-xl">Log in</p>
+        <label for="email">
+          <input
           type="text" id="email" placeholder="Email"
           class="w-full rounded-md p-2 border my-4 focus:border-blue-400"
-        >
-      </label>
-      
-      <label for="password">
-        <input
+          >
+        </label>
+        
+        <label for="password">
+          <input
           type="text" id="email" placeholder="Password"
           class="w-full rounded-md p-2 border my-4"
-        >
-      </label>
+          >
+        </label>
+      </div>
       
-      <button class="w-full p-2 bg-blue-500 rounded-md text-white">Log in</button>
+      <button id="auth" class="w-full p-2 bg-blue-500 rounded-md text-white">Log in</button>
       <div class="">
         <p class="text-center p-2">or</p>
       </div>
@@ -37,6 +39,8 @@
     </form>
   </div>
 
-  <script src="views/script/generateRegister.js"></script>
+  <script src="views/script/auth/generateRegister.js"></script>
+  <script src="views/script/auth/auth.js"></script>
+  
 </body>
 </html>
