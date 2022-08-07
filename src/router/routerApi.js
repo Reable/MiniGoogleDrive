@@ -23,7 +23,7 @@ routerApi.get('/remove/:id', roleMiddleware(["admin", "editor"]), UserController
 
 //File route
 routerApi.post('/addFile', authMiddleware, fileMiddleware.single('avatar'), FileController.addFile);
-
+routerApi.get('/download/:id/:filename', FileController.download)
 const views = (name) => {
   return path.resolve(__dirname, '..', '..', 'public', 'views', name)
 }

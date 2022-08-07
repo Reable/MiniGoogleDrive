@@ -2,12 +2,11 @@ const path = require('path')
 const { pathFile } = require('../../../config.js')
 const { Users, File } = require('../../db')
 
-class FileController {
-  async uploadFile(name, req, res, next) {
-    
-    next()
-  }
+const filepath = (id, name) => {
+  return path.join(__dirname, '..', '..', '..', 'public','files',id,name)
+}
 
+class FileController {
   async addFile(req, res){
     try{
       console.log('hello');
@@ -19,6 +18,10 @@ class FileController {
       console.log(e);
       return res.status(500).json({ message: "Upload error" })
     }
+  }
+
+  async download(req, res) {
+    return res.download(filepath(req.params.id, req.params.filename))
   }
 }
 
