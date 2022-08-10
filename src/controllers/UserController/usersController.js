@@ -81,7 +81,6 @@ class UserController {
   }
 
   async check(req, res) {
-    console.log('-----------------------')
     const user = await Users.findOne({
       where: {
         id: req.user.id

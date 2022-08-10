@@ -21,17 +21,17 @@
       <div class="rounded-md border-2 border-blue-400 p-5 w-full space-y-2">
         <div class="up flex justify-between">
           <p>
-            email: reabletop@gmail.com
+            email: <span id="email"> reabletop@gmail.com </span>
           </p> 
-          <p>
+          <p id="role">
             User
           </p>
         </div>
         <p>
-          Cвободно памяти: 267 гб
+          использованно памяти: <span id="usedSpace"> 267 </span> гб
         </p>
         <p>
-          Занято памяти: 233 гб
+          Всего памяти: <span id="diskSpace"> 233 </span> гб
         </p>
       </div>
       <form action="" class="rounded-md flex flex-wrap justify-between items-center border-2 border-blue-400 p-5 mt-6 space-y-4">
@@ -57,5 +57,6 @@
 
   <!-- Check auth user -->
   <script src="/views/script/checkAuth.js"></script>
+  <script src="/views/script/personal/allData.js"></script>
 </body>
 </html>

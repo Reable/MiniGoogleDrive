@@ -18,8 +18,10 @@ routerApi.get('/checkAuth', authMiddleware, UserController.check);
 // Users route
 routerApi.post('/registration', UserController.registration);
 routerApi.post('/authorization', UserController.authorization);
+routerApi.get('/personal', authMiddleware, UserController.personalArea);
 routerApi.get('/users', roleMiddleware(["admin", "editor"]), UserController.getAll);
 routerApi.get('/remove/:id', roleMiddleware(["admin", "editor"]), UserController.remove);
+
 
 //File route
 routerApi.post('/addFile', authMiddleware, fileMiddleware.single('avatar'), FileController.addFile);
