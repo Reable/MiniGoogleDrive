@@ -10,6 +10,8 @@ const routerApi = require('./src/router/routerApi.js');
 const routePage = require('./src/router/routePage');
 const app = express()
 
+app.set('view engine','ejs')
+app.set('views',path.resolve('public','views'))
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

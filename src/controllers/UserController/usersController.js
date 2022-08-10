@@ -90,5 +90,15 @@ class UserController {
     })
     return res.status(200).json(user)
   }
+
+  async personalArea(req, res){
+    const user = await Users.findOne({
+      where: {
+        id: req.user.id
+      },
+      attributes: ['email', 'role', 'image', 'usedSpace', 'diskSpace']
+    })
+    return res.status(200).json(user)
+  }
 }
 module.exports = new UserController;
