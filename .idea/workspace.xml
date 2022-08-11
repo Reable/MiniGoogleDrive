@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e132afff-7825-4d1d-b305-722e34be8792" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/public/views/css/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/css/output.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/personal-area.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/personal-area.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/personal-area.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/personal-area.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/script/personal/allData.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/script/personal/allData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/FileController/fileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/FileController/fileController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
