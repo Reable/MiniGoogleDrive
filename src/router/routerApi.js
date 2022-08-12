@@ -24,8 +24,10 @@ routerApi.get('/remove/:id', roleMiddleware(["admin", "editor"]), UserController
 
 
 //File route
-routerApi.post('/addFile', authMiddleware, fileMiddleware.single('file'), FileController.addFile);
+routerApi.get('/files',authMiddleware,FileController.files)
 routerApi.get('/download/:id/:filename', FileController.download)
+routerApi.post('/addFile', authMiddleware, fileMiddleware.single('file'), FileController.addFile);
+
 const views = (name) => {
   return path.resolve(__dirname, '..', '..', 'public', 'views', name)
 }
