@@ -71,3 +71,8 @@ function generateFiles () {
       placeFiles.innerHTML = html
     })
 }
+
+document.querySelector('button.exit').addEventListener('click', (e) => {
+  localStorage.clear()
+  location.href = '/'
+})
