@@ -6,9 +6,8 @@ const roleMiddleware = require('../middleware/roleMiddleware');
 const authMiddleware = require("../middleware/authMiddleware.js");
 
 //Controllers
-const FileController = require('../controllers/FileController/fileController');
-const UserController = require('../controllers/UserController/usersController');
-const fileMiddleware = require('../middleware/fileMiddleware');
+const FileController = require('../controllers/fileController');
+const UserController = require('../controllers/usersController');
 
 const routerApi = Router();
 
@@ -26,7 +25,7 @@ routerApi.get('/remove/:id', roleMiddleware(["admin", "editor"]), UserController
 //File route
 routerApi.get('/files',authMiddleware,FileController.files)
 routerApi.get('/download/:id/:filename', FileController.download)
-routerApi.post('/addFile', authMiddleware, fileMiddleware.single('file'), FileController.addFile);
+routerApi.post('/addFile', authMiddleware, FileController.addFile);
 
 const views = (name) => {
   return path.resolve(__dirname, '..', '..', 'public', 'views', name)

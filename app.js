@@ -2,19 +2,25 @@ const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
-const { sequelize } = require('./src/db');
 const { pathFile } = require('./config');
+const { sequelize } = require('./src/db');
 
-const routerApi = require('./src/router/routerApi.js');
 const routePage = require('./src/router/routePage');
+const routerApi = require('./src/router/routerApi.js');
+
 const app = express()
+
+app.use(morgan('dev'));
+app.use(fileUpload({}))
 
 app.set('view engine','ejs')
 app.set('views',path.resolve('public','views'))
-app.use(morgan('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(express.static(path.resolve(__dirname,"public")));
 
 app.use('/', routePage);

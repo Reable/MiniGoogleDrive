@@ -30,7 +30,12 @@ async function addFile() {
     body: data
   })
     .then(res => res.json())
-    .then(generateFiles())
+    .then(res => {
+      if (res.error) {
+        return alert(res.message)
+      }
+      generateFiles()
+    })
 
 }
 const form = document.getElementById('addFile')
@@ -40,7 +45,6 @@ form.addEventListener('submit',(e) => {
 })
 
 function generateFiles () {
-  console.log('++++++++++++++++++++++++++++====');
   let html = ''
   fetch('http://localhost:3000/api/files', {
     headers: {
