@@ -15,7 +15,7 @@ class FileController {
         return res.status(400).json({error:'alert', message: "File is required" })
       }
       
-      const [ filename, typefile ] = file.name.split('.');
+      let [ filename, typefile ] = file.name.split('.');
       const size = (file.size / 1024) / 1024
 
       if (!fs.existsSync(filepath(req.user.id))){
@@ -26,7 +26,7 @@ class FileController {
         return res.status(400).json({error: 'alert', message:'Файл уже существует'})
       }
 
-      fs.writeFileSync( filepath( req.user.id, file.name ),file.data );
+      fs.writeFileSync( filepath( req.user.id, file.name ),file.data, {encoding: 'utf-8'} );
       
       const user = await Users.findOne({where: {id: req.user.id}})
       user.update({
@@ -47,6 +47,23 @@ class FileController {
       console.log(e);
       return res.status(500).json({error: 'alert', message: "Upload error" })
     }
+  }
+
+  async deleteFile (req, res) {
+    const [filename, type] = req.body.filename.split('.')
+    console.log(filename, type,'===============================')
+    await fs.promises.rm(filepath(req.user.id, req.body.filename))
+
+    const fileDelete = await File.findOne({where: {user_id: req.user.id, filename, type }})
+    fileDelete.destroy()
+
+    const user = await Users.findOne({where: {id: req.user.id}})
+    user.update({
+      diskSpace: Number(user.diskSpace) + Number(fileDelete.size),
+      usedSpace: Number(user.usedSpace) - Number(fileDelete.size)
+    })
+
+    return res.status(200).json({error: 'alert', message: 'Файл удален'})
   }
 
   async files(req, res){
