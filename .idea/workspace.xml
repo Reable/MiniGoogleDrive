@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e132afff-7825-4d1d-b305-722e34be8792" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/2/five.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/fileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/fileController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routerApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routerApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/css/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/css/output.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/script/personal/allData.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/script/personal/allData.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +31,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/Users/razmyslov/server/git/MiniGoogleDrive",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.EditorConfig",
+    "settings.editor.selected.configurable": "preferences.sourceCode.TypeScript",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

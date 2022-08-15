@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/views/css/output.css" rel="stylesheet">
   <title>TailwindCss</title>
+  <style>
+    .none {
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="h-[100vh]">
@@ -43,6 +48,7 @@
     </div>
     <div id="place" class="border-l-2 border-l-blue-400 w-2/3 p-5 flex justify-left flex-wrap"></div>
   </main>
+  <div class="popupPlace absolute right-0 left-0 bottom-0 top-0 bg-gray-400 bg-opacity-40 flex items-center justify-center none"></div>
 
   <!-- Check auth user -->
   <script src="/views/script/checkAuth.js"></script>

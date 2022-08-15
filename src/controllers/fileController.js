@@ -50,8 +50,11 @@ class FileController {
   }
 
   async deleteFile (req, res) {
+    console.log(req.body.filename, '===========================================================');
+    if (!req.body.filename) return res.json({error: 'alert', message: 'Ошибка убаления файла'})
+
     const [filename, type] = req.body.filename.split('.')
-    console.log(filename, type,'===============================')
+
     await fs.promises.rm(filepath(req.user.id, req.body.filename))
 
     const fileDelete = await File.findOne({where: {user_id: req.user.id, filename, type }})
@@ -60,10 +63,10 @@ class FileController {
     const user = await Users.findOne({where: {id: req.user.id}})
     user.update({
       diskSpace: Number(user.diskSpace) + Number(fileDelete.size),
-      usedSpace: Number(user.usedSpace) - Number(fileDelete.size)
+      usedSpace: Number(user.usedSpace) - Number(fileDelete.size),
     })
 
-    return res.status(200).json({error: 'alert', message: 'Файл удален'})
+    return res.status(200).json({error: 'none', message: 'Файл удален'})
   }
 
   async files(req, res){
