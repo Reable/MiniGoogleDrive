@@ -1,7 +1,8 @@
+url = location.href.split('/').slice(0,-1).join('/')
 generateYourData()
 generateFiles()
 async function generateYourData(){
-  fetch('http://localhost:3000/api/personal', {
+  fetch(url+'/api/personal', {
     headers: {
       'Authorization': 'Bearer '+ token
     }
@@ -27,7 +28,7 @@ async function addFile() {
 
   data.append('file',file.files[0])
 
-  fetch('http://localhost:3000/api/addFile', {
+  fetch(url+'/api/addFile', {
     method: 'post',
     headers: {
     Authorization: "Bearer "+token,
@@ -47,7 +48,7 @@ async function addFile() {
 
 function generateFiles () {
   let html = ''
-  fetch('http://localhost:3000/api/files', {
+  fetch(url+'/api/files', {
     headers: {
       Authorization: 'Bearer '+token
     }
@@ -55,7 +56,9 @@ function generateFiles () {
     .then(res => res.json())
     .then(data => {
       const placeFiles = document.querySelector('div#place')
-      if (data.error === 404) return placeFiles.innerHTML = '<h1>Файлы пока что не добавленны</h1>'
+      console.log(data);
+      if (data.error === 404 || data.files.length === 0) return placeFiles.innerHTML = '<h1>Файлы пока что не добавленны</h1>'
+      
       for (let i = 0; i< data.files.length; i++) {
         let file = data.files[i].split('.')[1]
         let img = file === 'zip' 
@@ -67,7 +70,7 @@ function generateFiles () {
             <div class="max-w-4/5 max-h-4/5 rounded-xl">
               <img src="/files/${img}" alt="" class="popup w-full h-full rounded-md">
             </div>
-            <a href="/api/download/${data.id}/${data.files[i]}"
+            <a href="${url}/api/download/${data.id}/${data.files[i]}"
               class="text-center border transition-all border-blue-400 px-2 py-1 mt-2 w-full hover:bg-blue-400 hover:text-white"> 
               ${data.files[i]}
             </a>
@@ -97,14 +100,13 @@ async function openPopUp(img, userId){
     <div class="w-1/2 h-2/3 bg-white p-10 opacity-90 relative">
       <img src="${img.src}" alt="" class="w-full h-3/4">
       <nav class="mt-5 flex justify-around flex-wrap">
-        <a href="/api/download/${userId}/${filename}" class="border-2 rounded-md text-center transition-all text-xl border-blue-400 bg-white w-2/5 p-2 hover:bg-blue-400 hover:text-white">download</a>
+        <a href="${url}/api/download/${userId}/${filename}" class="border-2 rounded-md text-center transition-all text-xl border-blue-400 bg-white w-2/5 p-2 hover:bg-blue-400 hover:text-white">download</a>
         <button class="deleteFile rounded-md border-2 transition-all text-xl border-red-400 bg-white w-2/5 p-2 hover:bg-red-400 hover:text-white">delete</button>
         <button class="copyDownloadLink p-3 my-3 border-2 border-orange-400 w-2/5 rounded-md transition-all text-xl hover:bg-orange-400 hover:text-white">Сылка на скачивание</button>
       </nav>
       <button class="popupClose border border-red-700 bg-red-300 hover:bg-red-700 rounded-full absolute py-1 px-[10px] -right-4 -top-4 text-white">X</button>
     </div>
   `
-  // http://localhost:3000/api/download/${userId}/${filename}
   popUpPlace.innerHTML = popUp
 
   const exitButton = document.querySelector('.popupClose')
@@ -114,13 +116,13 @@ async function openPopUp(img, userId){
 
   const copyDownloadLink = document.querySelector('.copyDownloadLink')
   copyDownloadLink.addEventListener('click',async (e)=>{
-    await navigator.clipboard.writeText(`http://localhost:3000/api/download/${userId}/${filename}`);
+    await navigator.clipboard.writeText(url+`/api/download/${userId}/${filename}`);
     alert(`Link copied!`);
   })
 
   const deleteFile = document.querySelector('.deleteFile')
   deleteFile.addEventListener('click', () => {
-    fetch('http://localhost:3000/api/deleteFile', {
+    fetch(url+'/api/deleteFile', {
       method: 'post',
       headers: {
         "Content-type": "application/json",

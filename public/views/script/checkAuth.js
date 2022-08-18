@@ -1,7 +1,8 @@
+let url = location.href.split('/').slice(0,-1).join('/')
 let token = localStorage.getItem('token')
 
 if (token) {
-  fetch('http://localhost:3000/api/checkAuth',{
+  fetch(url+'/api/checkAuth',{
     headers: {
       'Authorization': `Bearer ${token}`
     }

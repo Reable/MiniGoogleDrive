@@ -29,7 +29,7 @@ const start = () => {
     // sequelize.sync({force:true})
     sequelize.sync()
     .then(result => {
-      app.listen(3000, () => console.log("Server is running"))
+      app.listen(80, () => console.log("Server is running"))
     })
   } catch (e){
     console.log(e);

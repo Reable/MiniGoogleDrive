@@ -1,3 +1,4 @@
+url = location.href.split('/').slice(0,-1).join('/')
 const button = document.querySelector('button#auth')
 
 async function sendRequest(event){
@@ -14,7 +15,7 @@ async function sendRequest(event){
   } else {
     route = 'registration'
   }
-  fetch(`http://localhost:3000/api/${route}`,{
+  fetch(url+`/api/${route}`,{
     method: 'post',
     body: JSON.stringify(obj),
     headers: {
@@ -33,8 +34,12 @@ button.addEventListener('click', (e) => {
 })
 
 function jobWithData(res) {
-  console.log(res)
   if (res.error === 'alert') return alert(res.message)
+  
+  if(res.message === 'Данная почта уже используеться') {
+    alert(res.message)
+  }
+
   if (res.error) {
     const errorInput = document.getElementById(res.error)
     const placeholder = errorInput.placeholder

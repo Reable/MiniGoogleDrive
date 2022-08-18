@@ -50,7 +50,7 @@ class FileController {
   }
 
   async deleteFile (req, res) {
-    console.log(req.body.filename, '===========================================================');
+
     if (!req.body.filename) return res.json({error: 'alert', message: 'Ошибка убаления файла'})
 
     const [filename, type] = req.body.filename.split('.')

@@ -23,7 +23,7 @@ class UserController {
 
       const emailUse = await Users.findOne({where: {email: req.body.email}})
       if (emailUse) {
-        return res.setHeader("Content-type", "application/json").status(402).json({error: "email", message: "данная почта уже используеться"})
+        return res.setHeader("Content-type", "application/json").status(402).json({error: "email", message: "Данная почта уже используеться"})
       }
       const hashPassword = bcrypt.hashSync(req.body.password, 7)
       const user = await Users.create({...req.body, password: hashPassword, role: "user", usedSpace: 0, diskSpace: 500})
