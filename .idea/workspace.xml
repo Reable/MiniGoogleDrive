@@ -5,42 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e132afff-7825-4d1d-b305-722e34be8792" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/test/someHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/index.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/test/someHandler.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/user.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/googleDrive.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/default.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/css/input.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/css/output.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/personal-area.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/script/auth/auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/script/auth/generateRegister.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/script/checkAuth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/script/personal/allData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/fileController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/usersController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/authMiddleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/roleMiddleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/file.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/users.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routePage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routerApi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
