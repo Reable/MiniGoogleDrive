@@ -1,1 +1,0 @@
-Before running the project, you need to use the dump database "googleDrive.sql"
